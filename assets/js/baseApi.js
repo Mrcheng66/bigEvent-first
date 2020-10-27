@@ -11,4 +11,12 @@ $.ajaxPrefilter(function (options) {
     // console.log(options.url);
     options.url= baseUrl + options.url
     // console.log(options.url);
+
+    //对需要权限的接口配置头信息
+    // 必须要以my开头
+    if(options.url.indexOf('/my/') !== -1) {
+        options.headers = {
+            Authorization: localStorage.getItem('token') || ''
+        }
+    }
 })
