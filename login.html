@@ -24,17 +24,17 @@
         <!-- 登录的div -->
         <div class="loginBox">
             <!-- 登录表单 -->
-            <form class="layui-form" action="">
+            <form class="layui-form" id="form_login">
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username" style="font-size: 16px; color: #1E9FFF;"></i>  
-                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                    <input type="text" value="chengh" name="username" required lay-verify="required" placeholder="请输入用户名"
                         autocomplete="off" class="layui-input">
                 </div>
                 <!-- 密码 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-password" style="font-size: 16px; color: #1E9FFF;"></i>  
-                    <input type="text" name="password" required lay-verify="required|pwd" placeholder="请输入密码"
+                    <input type="text" value="123123" name="password" required lay-verify="required|pwd" placeholder="请输入密码"
                         autocomplete="off" class="layui-input">
                 </div>
                 <!-- 登录按钮 -->
@@ -87,6 +87,8 @@
     <script src="/assets/lib/layui/layui.all.js"></script>
     <!-- 导入jQuery -->
     <script src="/assets/lib/jquery.js"></script>
+    <!-- 引入baseApi.js -->
+    <script src="/assets/js/baseApi.js"></script>
     <!-- 引入自己的js -->
     <script src="/assets/js/login.js"></script>
 </body>
