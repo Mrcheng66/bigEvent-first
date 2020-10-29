@@ -1,6 +1,19 @@
 //获取用户基本信息函数必须写在入口函数外面,后面还要调用,所有声明为全局函数
 $(function() {
+    //获取用户基本信息
     getUserinfo()
+    //退出登录 功能
+    var layer = layui.layer
+    $('#btnLogout').on('click', function () {
+        //框架提供的询问框
+        layer.confirm('确定退出登录?', {icon: 3, title:'提示'}, function(index){
+            //清空token
+            localStorage.removeItem('token')
+            //跳转页面
+            location.href = '/login.html'
+            layer.close(index);
+          });
+    })
 })
 
 function getUserinfo() {
