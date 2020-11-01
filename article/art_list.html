@@ -16,26 +16,80 @@
         </div>
         <div class="layui-card-body">
             <!-- 筛选 -->
+            <form class="layui-form" id="form-search">
+                  <!-- 1分类 -->
+                <div class="layui-form-item layui-inline">
+                  <select name="cate_id">
+                   
+                  </select>   
+                </div>
+                <!-- 状态 -->
+                <div class="layui-form-item layui-inline">
+                    <select name="state" >
+                      <option value="">所有状态</option>
+                      <option value="已发布">已发布</option>
+                      <option value="草稿">草稿</option>
+                    </select>   
+                  </div>
+                  <!-- 筛选 -->
+                <div class="layui-form-item layui-inline">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                  </div>
+            </form>
             <!-- 列表 -->
+            <table class="layui-table">
+                <colgroup>
+                  <col>
+                  <col width="150">
+                  <col width="230">
+                  <col width="150">
+                  <col width="150">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>文章标题</th>
+                    <th>分类</th>
+                    <th>发表时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
             <!-- 分页 -->
+            <div id="pageBox"></div>
         </div>
     </div>
     <script src="/assets/lib/template-web.js"></script>
-    <script type="text/html" id="tpl_cate">
+    <!-- 列表中的文章渲染 -->
+    <script type="text/html" id="tpl-table">
         {{each data item}}
         <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.alias}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.cate_name}}</td>
+                <td>{{item.pub_date|dateFormate}}</td>
+                <td>{{item.state}}</td>
             <td>
                 <button type="button" data-id='{{item.Id}}' id='btn_edit' class="layui-btn layui-btn-sm layui-btn-normal">编辑</button>
-                <button type="button" data-id='{{item.Id}}' id='btn_delete' class="layui-btn layui-btn-sm layui-btn-danger">删除</button>
+                <button type="button" data-id='{{item.Id}}' id='btn_delete' class="btn_delete layui-btn layui-btn-sm layui-btn-danger">删除</button>
             </td>
         </tr>
         {{/each}}
     </script>
-
+    <!--筛选中的 分类下拉选项模块 -->
+    <script type="text/html" id="tpl-cates">
+        
+        <option value="">所有分类</option>
+        {{each data item}}
+        <option value="{{item.Id}}">{{item.name}}</option>
+        {{/each}}
+    </script>
 
     <script src="/assets/lib/layui/layui.all.js"></script>
+    
+    
     <!-- 引入jq -->
     <script src="/assets/lib/jquery.js"></script>
     <!-- 引入baseApi -->
